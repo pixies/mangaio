@@ -54,5 +54,9 @@ class UserProfile(models.Model):
 
 	bio = models.TextField('Fale sobre você')
 
+	imageprofile = models.ImageField(
+		upload_to = "profile/%Y/%m/%d"
+		)
+
 	def __str__(self):
 		return self.usuario.nome
