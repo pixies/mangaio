@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from comunidade.models import UserProfile
+from mangaio.comunidade.models import UserProfile
 
 # Create your views here.
 def index(request):

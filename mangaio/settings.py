@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'comunidade',
+    'mangaio.comunidade',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'mangaio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'mangaio/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -127,4 +127,4 @@ STATIC_ROOT = '/home/vyctor/Projetos/mangaio/static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/vyctor/Projetos/mangaio/media'
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),) 
+#TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)

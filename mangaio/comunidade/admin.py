@@ -1,5 +1,5 @@
 from django.contrib import admin
-from comunidade.models import Usuario,UserProfile,Endereco,RedeSocial
+from mangaio.comunidade.models import Usuario,UserProfile,Endereco,RedeSocial
 
 # Register your models here.
 admin.site.register(Usuario)
