@@ -41,8 +41,14 @@
 				<span>
 				</span>
 			</span>
+
+            <span class="nav-item">
+                <a class="button is-info" href="{% url 'core:contact' %}">
+					<span>Fale Conosco
+					</span>
+				</a>
             {% if not request.user.is_authenticated %}
-			<span class="nav-item">
+
 				<a class="button is-primary" href="{% url 'accounts:entrar' %}">
 					<span>Entrar
 					</span>
