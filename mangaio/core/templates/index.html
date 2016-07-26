@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+            <!-- Começo do conteúdo com cards -->
+			<div class="column is-three-quarters">
+				<!-- Card 1 -->
+				{% for conteudo in conteudos %}
+                <div class="box">
+
+					<article class="media">
+						<div class="media-left">
+							<figure class="image is-64x64">
+								<img src="assets/images/placeholder.jpg" alt="Image" style="border-radius: 50%">
+							</figure>
+						</div>
+						<div class="media-content">
+							<div class="content">
+								<p>
+									<strong>
+									<a href="#">{{ conteudo.autor }}
+									</a>
+									</strong> em
+									<strong>
+									<a href="#">{{ conteudo.categoria }}
+									</a>
+									</strong>
+									<br>
+									<small>{{ conteudo.time }}
+									</small>
+									<br>
+									<figure class="image">
+										<img src="assets/images/imagem-card.jpg" alt="">
+									</figure>
+                                        {{ conteudo.conteudo }}
+								</p>
+								<p>
+									<a href="#">Continue lendo...
+									</a>
+								</p>
+							</div>
+							<nav class="level">
+								<div class="level-left">
+									<a class="level-item">
+										<span class="icon is-small">
+											<i class="fa fa-heart">
+											</i>
+										</span>
+									</a>
+									<span>{{ conteudo.like }}
+									</span>
+								</div>
+							</nav>
+						</div>
+					</article>
+
+				</div>
+                {% endfor %}
+				<!-- Card 1 -->
+				<div class="box">
+					<p>Não tem mais postagens <span class="icon"><i class="fa fa-frown-o" aria-hidden="true"></i></span></p>
+				</div>
+			</div>
+			<!-- Final do conteúdo com cards -->
+{% endblock content %}
