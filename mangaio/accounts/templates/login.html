@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="column is-three-quarters">
+
+      <div class="container is-centered"><h1>Entre com seu login e senha</h1>
+      <div class="columns">
+          <div class="column is-half is-offset-one-quarter">
+
+                <form action="" method="post">{% csrf_token %}
+              {% for field in form %}
+                    <div class="container">
+                        <p class="control has-icon">
+                            {{ field.label_tag }}
+                            {{ field.errors }}
+                            {{ field }}<br>
+                            <!--<i class="fa fa-envelope"></i>-->
+                        </p>
+<!--                        <p class="control has-icon">
+                            <input class="input" type="password" placeholder="Password" name="password">
+                            <i class="fa fa-lock"></i>
+                        </p> -->
+
+                    </div>
+              {% endfor %}
+                 <p class="control">
+                            <button class="button is-success">
+                                    Login
+                            </button>
+                            <span><a href="{% url 'accounts:solicitar-senha' %}">Esqueceu sua senha?</a></span>
+                        </p>
+                </form>
+
+            </div>
+
+          </div>
+
+    </div>
+
+  </div>
+{% endblock content %}

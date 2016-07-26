@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+{% endblock sidebar %}
+
+{% block content %}
+  <div class="column is-three-quarters">
+
+
+      <div class="columns">
+          <div class="column is-6 is-offset-6 is-11-mobile is-offset-1-mobile">
+      <div class="container is-centered" style="border: 1px solid red">
+                <form action="" method="post">{% csrf_token %}
+              {% for field in form %}
+                    <div class="container">
+                        <p class="control has-icon">
+                            {{ field.label_tag }}
+                            {{ field.errors }}
+                            {{ field }}<br>
+                            <!--<i class="fa fa-envelope"></i>-->
+                        </p>
+                    </div>
+              {% endfor %}
+                 <p class="control">
+                    <button class="button is-success">
+                            Login
+                    </button>
+                 </p>
+                </form>
+
+            </div>
+
+          </div>
+    </div>
+  </div>
+{% endblock content %}
