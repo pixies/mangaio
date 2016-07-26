@@ -5,6 +5,6 @@
 
 ### Requisitos
 
-Python 3 or >
-Django 1.9 or >
-Pillow 3.2 or >
+- Python 3 or >;
+- Django 1.9 or >;
+- Pillow 3.2 or >;
