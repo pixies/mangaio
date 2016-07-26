@@ -1,0 +1,176 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Mangaio
+		</title>
+		<meta name="description" content="É um negócio muito doido, doido!">
+
+		<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+        <style>
+            .navbar.is-fixed-top {
+              position: fixed;
+              left: 0;
+              right: 0;
+              z-index: 1030;
+            }
+
+            .navbar.is-fixed-top {
+              top: 20;
+            }
+
+        </style>
+	</head>
+	<body>
+    <!-- Começo da navbar -->
+		<nav class="nav">
+			<div class="nav-left">
+				<a class="nav-item " href="#">
+					<img src="{% static 'assets/images/mangaio.svg' %}" alt="" style="width: 215px; height: 41px;">
+				</a>
+			</div>
+			<span class="nav-toggle">
+				<span>
+				</span>
+				<span>
+				</span>
+				<span>
+				</span>
+			</span>
+            {% if not request.user.is_authenticated %}
+			<span class="nav-item">
+				<a class="button is-primary" href="{% url 'accounts:entrar' %}">
+					<span>Entrar
+					</span>
+				</a>
+                <a class="button is-secundary" href="{% url 'accounts:novo' %}">
+					<span>Cadastrar-se
+					</span>
+				</a>
+			</span>
+            {% else %}
+                <span class="nav-item">
+				<a class="button is-primary" href="#">
+					<span>Editar Perfil
+					</span>
+				</a>
+                <a class="button is-secundary" href="{% url 'accounts:sair' %}">
+					<span>Sair
+					</span>
+				</a>
+			</span>
+            {% endif %}
+
+	</nav>
+	<!-- Final da navbar -->
+
+    <!-- Começo das tabs -->
+	<nav class="level tabs is-centered is-medium">
+        <ul>
+          <li class="level-item has-text-centered is-active">
+            <a class="link is-info">Início</a>
+          </li>
+            <li class="level-item has-text-centered">
+            <a class="link is-info">Eventos</a>
+          </li>
+          <li class="level-item has-text-centered">
+            <a class="link is-info">Música</a>
+          </li>
+          <li class="level-item has-text-centered">
+            <a class="link is-info">Literatura</a>
+          </li>
+          <li class="level-item has-text-centered">
+            <a class="link is-info">Artes Visuais</a>
+          </li>
+            <li class="level-item has-text-centered">
+            <a class="link is-info">Coltivos</a>
+          </li>
+        </ul>
+    </nav>
+	<!-- Final das tabs -->
+
+	<div class="container is-fluid">
+		<div class="columns">
+            {% block content %}
+            {% endblock content %}
+
+            {% block sidebar %}
+            <!-- Começo do menu ao lado -->
+			<div class="column">
+				<aside class="menu">
+					<p class="menu-label">
+						Geral
+					</p>
+					<ul class="menu-list">
+						<li>
+							<a href="#">Início
+							</a>
+						</li>
+						<li>
+							<a href="#">Fale conosco
+							</a>
+						</li>
+					</ul>
+					<p class="menu-label">
+						Administração
+					</p>
+					<ul class="menu-list">
+						<li>
+							<a href="#">Configurações
+							</a>
+						</li>
+						<li>
+							<a class="is-active" href="#">Gerencie sua banda
+							</a>
+							<ul>
+								<li>
+									<a href="#">Membros
+									</a>
+								</li>
+								<li>
+									<a href="#">Eventos
+									</a>
+								</li>
+								<li>
+									<a href="#">Músicas
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Convites
+							</a>
+						</li>
+						<li>
+							<a href="#">Autenticação
+							</a>
+						</li>
+					</ul>
+				</aside>
+			</div>
+			<!-- Final do menu ao lado -->
+            {% endblock sidebar %}
+		</div> <!-- END Columns -->
+	</div> <!-- END Container fluid -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="content has-text-centered">
+				<p>
+					<strong>Tema Mangaio</strong> feito com muito uísque por <a href="http://fb.com/oliveira.vyctor">Vitão Oliveira</a> e <a href="http://fb.com/oliveira.vyctor">Cleyton "Rasta" Fábio</a>. <br> O código fonte tem a licensa
+					<a href="http://opensource.org/licenses/mit-license.php">MIT</a>. O conteúdo deste site é licensiado como Creative Commons - <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+				</p>
+				<p>
+					<a class="icon" href="https://github.com/pixies/mangaio">
+						<i class="fa fa-github"></i>
+					</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
