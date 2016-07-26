@@ -13,13 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from mangaio.comunidade.views import index
 
 urlpatterns = [
+    url(r'^', include('mangaio.core.urls', namespace='core')),
+    url(r'^conta/', include('mangaio.accounts.urls', namespace='accounts')),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
