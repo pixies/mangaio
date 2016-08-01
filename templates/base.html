@@ -5,8 +5,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Mangaio
-		</title>
+		<title>Mangaio</title>
 		<meta name="description" content="É um negócio muito doido, doido!">
 
 		<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
@@ -41,7 +40,7 @@
 				<span>
 				</span>
 			</span>
-            {% if not request.user.is_authenticated %}
+            {% if not user.is_authenticated %}
 			<span class="nav-item">
 				<a class="button is-primary" href="{% url 'accounts:entrar' %}">
 					<span>Entrar
@@ -53,16 +52,16 @@
 				</a>
 			</span>
             {% else %}
+            	<span class="nav-item"> {{ user.username | title }}, bem-vindo ao mangaio!</span>
+            	
                 <span class="nav-item">
-				<a class="button is-primary" href="#">
-					<span>Editar Perfil
-					</span>
-				</a>
-                <a class="button is-secundary" href="{% url 'accounts:sair' %}">
-					<span>Sair
-					</span>
-				</a>
-			</span>
+					<a class="button is-primary" href="#">
+						<span>Editar Perfil</span>
+					</a>
+	                <a class="button is-secundary" href="{% url 'accounts:sair' %}">
+						<span>Sair</span>
+					</a>
+				</span>
             {% endif %}
 
 	</nav>
@@ -72,7 +71,7 @@
 	<nav class="level tabs is-centered is-medium">
         <ul>
           <li class="level-item has-text-centered is-active">
-            <a class="link is-info">Início</a>
+            <a class="link is-info" href="{% url 'core:home' %}">Início</a>
           </li>
             <li class="level-item has-text-centered">
             <a class="link is-info">Eventos</a>
@@ -96,11 +95,13 @@
 	<div class="container is-fluid">
 		<div class="columns">
             {% block content %}
+			<div class="column is-three-quarters">
+			</div>
             {% endblock content %}
 
             {% block sidebar %}
             <!-- Começo do menu ao lado -->
-			<div class="column">
+			<div class="column ">
 				<aside class="menu">
 					<p class="menu-label">
 						Geral
