@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+	{% load staticfiles %}
             <!-- Começo do conteúdo com cards -->
 			<div class="column is-three-quarters">
 				<!-- Card 1 -->
@@ -9,7 +10,7 @@
 					<article class="media">
 						<div class="media-left">
 							<figure class="image is-64x64">
-								<img src="assets/images/placeholder.jpg" alt="Image" style="border-radius: 50%">
+								<img src="{% static 'assets/images/placeholder.jpg' %}" alt="Image" style="border-radius: 50%">
 							</figure>
 						</div>
 						<div class="media-content">
@@ -28,7 +29,7 @@
 									</small>
 									<br>
 									<figure class="image">
-										<img src="assets/images/imagem-card.jpg" alt="">
+										<img src="{% static 'assets/images/imagem-card.jpg' %}" alt="">
 									</figure>
                                         {{ conteudo.conteudo }}
 								</p>
