@@ -15,6 +15,7 @@ def add_account(request):
 
     if form.is_valid():
         form.save()
+        return redirect('accounts:entrar')
 
     return render(request, 'add_account.html', context)
 
@@ -24,10 +25,18 @@ def login_account(request):
     if form.is_valid():
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password")
-
+       
         user = authenticate(username=username, password=password)
-        login(request, user)
-        return redirect("/")
+
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('core:home')
+                
+        else:
+            redirect('accounts:entrar')
+
+
     context["form"] = form
     return render(request, 'login.html', context)
 
@@ -40,9 +49,9 @@ def del_account(request):
 def request_pass_account(request):
     pass
 
-def new_pass_account(request):
+def new_pass_account(request):  
     pass
 
 def logout_account(request):
     logout(request)
-    return redirect("/")
+    return redirect("core:home")
